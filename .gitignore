@@ -1,0 +1,5 @@
+#DO NOT TOUCH THESE FILES
+
+node_modules
+.DS_Store
+.env
