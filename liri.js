@@ -47,12 +47,12 @@ function concertThis(value) {
     )
     .then(function(response) {
       // console.log(response);
-      console.log(response.status);
-      console.log(response.data);
+      // console.log(response.status);
+      // console.log(response.data);
 
       var results = response.data;
 
-      console.log(results[0].datetime);
+      // console.log(results[0].datetime);
 
       for (var i = 0; i < response.data.length; i++) {
         var concertDate = response.data[i].datetime;
@@ -127,7 +127,7 @@ function movieThis(value) {
         "\nYear Released: " +
         response.data.Year +
         "\nIMDB Rating: " +
-        response.data.imdbRaiting +
+        response.data.imdbRating +
         "\nRotton Tomatoes Rating: " +
         response.data.Ratings[1].Value +
         "\nCountry Produced: " +
@@ -137,8 +137,7 @@ function movieThis(value) {
         "\nPlot: " +
         response.data.Plot +
         "\nActors: " +
-        response.data.Actors +
-        "-----------------------------------";
+        response.data.Actors;
       console.log(movieThisResults);
     })
     .catch(function(error) {
