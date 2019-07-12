@@ -152,6 +152,31 @@ function doWhat() {
       return console.log(err);
     }
     var dataArr = data.split(",");
-    console.log(dataArr);
+
+    if (dataArr[0] === "spotify-this-song") {
+      spotify
+        .search({ type: "track", query: dataArr[1], limit: 1 })
+        .then(function(response) {
+          // console.log(JSON.stringify(response, null, 2));
+
+          // REQUIRED: Artist(s), Song Name, Preview Link of song via Spotify, & Album
+          var musicInfo =
+            "-----------------------------------" +
+            "\nArtist(s): " +
+            response.tracks.items[0].album.artists[0].name +
+            "\nSong Name: " +
+            response.tracks.items[0].name +
+            "\nAlbum: " +
+            response.tracks.items[0].album.name +
+            "\nPreview Song: " +
+            response.tracks.items[0].preview_url;
+
+          console.log(musicInfo);
+        })
+
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   });
 }
